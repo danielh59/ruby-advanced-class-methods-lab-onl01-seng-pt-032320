@@ -46,6 +46,7 @@ def self.alphabetical
 self.all.sort_by {|xyz| xyz.name}
 end 
 
+<<<<<<< HEAD
  def self.new_from_filename(name)
     song = self.new 
     song.name = (name.split(" - ")[1].chomp(".mp3"))
@@ -61,6 +62,26 @@ end
     song
   end
 def self.destroy_all
+=======
+def self.new_from_filename(name)
+  first_step = name.split(" - ")
+  first_step[1] = first_step[1].chomp(".mp3")
+ song = self.new
+ song.name = first_step[0]
+ song.artist_name = first_step[1]
+end 
+
+def self.ceate_from_filename(name)
+song = self.new 
+ first_step = name.split(" - ")
+  first_step[1] = first_step[1].chomp(".mp3")
+  song.name = first_step[0]
+   song.artist_name = first_step[1] 
+   song.save
+end 
+
+def self.destry_all()
+>>>>>>> a46453c02aad81063b6e3e6f7e8ca1e06b843b9f
   @@all.clear
 end 
 end 
